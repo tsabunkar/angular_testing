@@ -43,6 +43,26 @@ describe('Test case for Heroes Component', () => {
             expect(heroesComponent.heroes.length).toBe(3);
 
         });
+
+        // xit() -> commenting/skipping unit test case to run in karma
+        it('should call deleteHero() func present in HeroService', () => {
+            mockHeroesService.deleteHero.and.returnValue(of(true));
+
+            heroesComponent.heroes = HEROES_ARRAY; // is similar to  heroesComponent.ngOnInit(); bcoz we r
+            // initializing the heroes array in onInit also here we r doing manually
+
+            heroesComponent.delete(HEROES_ARRAY[3]); // removing 3 element from the array
+            expect(mockHeroesService.deleteHero).toHaveBeenCalled(); // checks weather deleteHero() func is called/invoked
+        });
+
+        it('should call deleteHero() func present in HeroService, whose i/p method argument is Object which we r deleting', () => {
+            mockHeroesService.deleteHero.and.returnValue(of(true));
+
+            heroesComponent.heroes = HEROES_ARRAY;
+            heroesComponent.delete(HEROES_ARRAY[3]);
+            expect(mockHeroesService.deleteHero).toHaveBeenCalledWith(HEROES_ARRAY[3]);
+        });
+
     });
 
 });
