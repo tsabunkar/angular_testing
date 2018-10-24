@@ -76,6 +76,7 @@ export class HeroService {
 
   /** DELETE: delete the hero from the server */
   deleteHero(hero: Hero | number): Observable<Hero> {
+    console.log('delete heroHero() func is called from service', hero);
     const id = typeof hero === 'number' ? hero : hero.id;
     const url = `${this.heroesUrl}/${id}`;
 

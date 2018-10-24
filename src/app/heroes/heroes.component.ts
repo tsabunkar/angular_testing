@@ -33,7 +33,9 @@ export class HeroesComponent implements OnInit {
   }
 
   delete(hero: Hero): void {
+    console.log('hero array is called by jasmin mock values', hero);
     this.heroes = this.heroes.filter(h => h !== hero);
+    console.log(this.heroes);
     this.heroService.deleteHero(hero).subscribe();
   }
 
