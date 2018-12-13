@@ -1,6 +1,7 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { HeroComponent } from './hero.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { By } from '@angular/platform-browser';
 
 describe('HeroComponent (doing Shallow Test of Complete HeroComponent)', () => {
 
@@ -55,7 +56,7 @@ describe('HeroComponent (doing Shallow Test of Complete HeroComponent)', () => {
 
         // expect(fixture.debugElement.nativeElement.querySelector('a').textContext).toContain('1 batman');
 
-        expect(fixture.debugElement.nativeElement.querySelector('a').textContent)
+        expect(fixture.nativeElement.querySelector('a').textContent)
             .toContain('1 batman');
     });
 
@@ -70,9 +71,33 @@ describe('HeroComponent (doing Shallow Test of Complete HeroComponent)', () => {
         fixture.detectChanges(); // this will tell angular to run change detection and update any binding which
         // exist on method or propety
 
-        expect(fixture.debugElement.nativeElement.querySelector('a').innerHTML)
+        expect(fixture.nativeElement.querySelector('a').innerHTML)
             .toContain('<span _ngcontent-c2="" class="badge">1</span> batman');
     });
+
+
+
+    it('debugElement vs nativeElement', () => {
+
+        fixture.componentInstance.hero = {
+            id: 1,
+            name: 'batman',
+            strength: 4
+        };
+        fixture.detectChanges();
+
+
+        /*  expect(fixture.nativeElement.querySelector('a').textContent)
+             .toContain('1 batman'); */
+        // !instead of using nativeElemet we used debugElement
+        expect(fixture.debugElement.query(By.css('a')).nativeElement.textContent)
+            .toContain('1 batman');
+        // debugElement -> Act as wrapper
+        // By-> y is a class which has method called css() where we can select element by
+        // class name '.a' (or) by id '#a  (or) element itself 'a'
+    });
+
+
 
 
 
