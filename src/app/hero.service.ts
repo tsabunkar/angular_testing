@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
@@ -18,6 +18,7 @@ export class HeroService {
 
   constructor(
     private http: HttpClient,
+    private httpClient: HttpClientModule,
     private messageService: MessageService) { }
 
   /** GET heroes from the server */
@@ -69,7 +70,9 @@ export class HeroService {
   /** POST: add a new hero to the server */
   addHero(hero: Hero): Observable<Hero> {
     return this.http.post<Hero>(this.heroesUrl, hero, httpOptions).pipe(
-      tap((hero: Hero) => this.log(`added hero w/ id=${hero.id}`)),
+      tap((heroElement: Hero) =>
+        this.log(`added hero w/ id=${heroElement.id}`)
+      ),
       catchError(this.handleError<Hero>('addHero'))
     );
   }

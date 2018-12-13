@@ -48,3 +48,21 @@ This test is write on single 'unit' of code.
 More than a unit testing, but less than the complete application.
 
 
+=====================================================================================================
+decribe('', () =>{
+
+});
+
+fdecribe('', () =>{
+
+});
+
+executes unit test case
+it('', () =>{
+
+});
+
+does not executes unit test case
+xit('', () =>{
+
+});
