@@ -39,7 +39,7 @@ describe('Test case for Heroes Component', () => {
             mockHeroesService.deleteHero.and.returnValue(of(true));
 
             heroesComponent.heroes = HEROES_ARRAY;
-            heroesComponent.delete(HEROES_ARRAY[3]); // removing 3 element from the array
+            heroesComponent.deleteHeroComp(HEROES_ARRAY[3]); // removing 3 element from the array
             expect(heroesComponent.heroes.length).toBe(3);
 
         });
@@ -51,7 +51,7 @@ describe('Test case for Heroes Component', () => {
             heroesComponent.heroes = HEROES_ARRAY; // is similar to  heroesComponent.ngOnInit(); bcoz we r
             // initializing the heroes array in onInit also here we r doing manually
 
-            heroesComponent.delete(HEROES_ARRAY[3]); // removing 3 element from the array
+            heroesComponent.deleteHeroComp(HEROES_ARRAY[3]); // removing 3 element from the array
             expect(mockHeroesService.deleteHero).toHaveBeenCalled(); // checks weather deleteHero() func is called/invoked
         });
 
@@ -59,7 +59,7 @@ describe('Test case for Heroes Component', () => {
             mockHeroesService.deleteHero.and.returnValue(of(true));
 
             heroesComponent.heroes = HEROES_ARRAY;
-            heroesComponent.delete(HEROES_ARRAY[3]);
+            heroesComponent.deleteHeroComp(HEROES_ARRAY[3]);
             expect(mockHeroesService.deleteHero).toHaveBeenCalledWith(HEROES_ARRAY[3]);
         });
 

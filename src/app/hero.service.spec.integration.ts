@@ -24,7 +24,7 @@ describe('Integration testing of service with Http Calls', () => {
             ]
         });
 
-        httpTestingController = TestBed.get(HttpTestingController); // technique to handle a service
+        httpTestingController = TestBed.get(HttpTestingController); // technique to get a service instance
         // for ex- to get HeroService we can do perform technique
         heroService = TestBed.get(HeroService);
 
@@ -68,7 +68,7 @@ describe('Integration testing of service with Http Calls', () => {
         }); // we r not actually Making a backend http Get Call rather
         // angulars - HttpTestingController will mock/fake this get call
 
-        const httpRequest = httpTestingController.expectOne('api/heroes/4');
+        const httpRequest = httpTestingController.expectOne('api/heroes/4'); // url
         httpRequest.flush({ // response for the GET http request call - 'api/heroes/4'
             id: 4,
             name: 'IronMan',
