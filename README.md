@@ -67,7 +67,7 @@ xit('', () =>{
 
 });
 
-=====================================================================================================
+================================================================================================
 Code Coverage - 
 tests that how much of your code is covered under unit testing (isolated/integration/e2e).
 So, if you have 90% code coverage than it means there is 10% of code that is not covered under tests
@@ -78,3 +78,6 @@ ng test --code-coverage
 A new coverage folder will be created by angular > Goto Coverage > index.html (open this index.html file
 in the chrome browser, where we can view the code-coverage report for all component) 
 
+================================================================================================
+E2E testing using protractor-
+-> ng e2e
