@@ -61,7 +61,7 @@ describe('Shallow testing for Heroes component', () => {
         // mockHeroService has Sample data in it
         mockHeroService.getHeroes.and.returnValue(of(HEROES_SAMPLE_DATA));
         // calling angular change detector, bcoz we require ngOnit() hook to getAll heroes item/data
-        fixture.autoDetectChanges();
+        fixture.detectChanges();
         // executing expect() function
         expect(fixture.componentInstance.heroes.length).toBe(3);
 
@@ -72,7 +72,7 @@ describe('Shallow testing for Heroes component', () => {
         // mockHeroService has Sample data in it
         mockHeroService.getHeroes.and.returnValue(of(HEROES_SAMPLE_DATA));
         // calling angular change detector, bcoz we require ngOnit() hook to getAll heroes item/data
-        fixture.autoDetectChanges();
+        fixture.detectChanges();
 
 
         // queryAll() will select all the li elements
